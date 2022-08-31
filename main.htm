@@ -1,0 +1,7 @@
+<h1> TEMPLATE</h1>
+
+<ui>
+    {%for user in users %}
+    <li> имя: {{user.name}}, возраст: {{user.age}}
+    {%- endfor %}
+</ui>
