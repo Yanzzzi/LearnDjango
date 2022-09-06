@@ -35,10 +35,11 @@ def show_main_menu():
     return {'menu': menu}
 
 @register.inclusion_tag('women/posts.html')
-def show_posts(cat_id=0):
-    if cat_id == 0:
+def show_posts(cat_slug=0):
+    if cat_slug == 0:
         posts = Women.objects.all()
     else:
+        cat_id = Category.objects.get(slug=cat_slug)
         posts = Women.objects.filter(cat_id=cat_id)
     if len(posts) == 0:
         raise Http404()
